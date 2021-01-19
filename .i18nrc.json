@@ -1,0 +1,7 @@
+{
+  "prefix": "instantOnIntegrations",
+  "paths": {
+    "instantOnIntegrations": "."
+  },
+  "translations": ["translations/ja-JP.json"]
+}
