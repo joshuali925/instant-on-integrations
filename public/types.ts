@@ -9,3 +9,10 @@ export interface InstantOnIntegrationsPluginStart {}
 export interface AppPluginStartDependencies {
   navigation: NavigationPublicPluginStart;
 }
+
+export interface PipelineType {
+  description?: string;
+  processors: any[];
+  version?: number;
+  on_failure?: any[];
+}
