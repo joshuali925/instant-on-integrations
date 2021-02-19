@@ -11,8 +11,11 @@ export interface AppPluginStartDependencies {
 }
 
 export interface PipelineType {
-  description?: string;
-  processors: any[];
-  version?: number;
-  on_failure?: any[];
+  id: string;
+  pipeline: {
+    description?: string;
+    processors: any[];
+    version?: number;
+    on_failure?: any[];
+  };
 }

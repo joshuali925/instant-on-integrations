@@ -1,12 +1,22 @@
 import { EuiButton, EuiFlexGroup, EuiFlexItem } from '@elastic/eui';
 import { CoreStart } from 'kibana/public';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SAVED_OBJECTS } from '../constants';
+import { CoreDeps } from './app';
 
-export function DashboardsView(props: {
-  http: CoreStart['http'];
-  notifications: CoreStart['notifications'];
-}) {
+export function DashboardsView(props: CoreDeps) {
+  useEffect(() => {
+    props.setBreadcrumbs([
+      {
+        text: 'Instant on Integrations',
+      },
+      {
+        text: 'Dashboards',
+        href: '#/dashboards',
+      },
+    ]);
+  }, []);
+
   const onAddIndexPattern = () => {
     props.http
       .post('../api/saved_objects/index-pattern', {

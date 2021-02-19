@@ -18,6 +18,12 @@ export function defineRoutes(router: IRouter) {
           },
         });
       } catch (error) {
+        if (error.statusCode === 404)
+          return response.ok({
+            body: {
+              pipelines: [],
+            },
+          });
         return response.custom({
           statusCode: error.statusCode || 500,
           body: error.message,
